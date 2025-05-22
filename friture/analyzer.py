@@ -221,7 +221,7 @@ class Friture(QMainWindow, ):
 
     # method
     def saveAppState(self):
-        settings = QtCore.QSettings("Friture", "Friture")
+        settings = QtCore.QSettings("Friture", "Friture2")
 
         settings.beginGroup("Docks")
         self.dockmanager.saveState(settings)
@@ -240,7 +240,7 @@ class Friture(QMainWindow, ):
 
     # method
     def migrateSettings(self):
-        settings = QtCore.QSettings("Friture", "Friture")
+        settings = QtCore.QSettings("Friture", "Friture2")
 
         # 1. move the central widget to a normal dock
         if settings.contains("CentralWidget/type"):
@@ -279,7 +279,7 @@ class Friture(QMainWindow, ):
     def restoreAppState(self):
         self.migrateSettings()
 
-        settings = QtCore.QSettings("Friture", "Friture")
+        settings = QtCore.QSettings("Friture", "Friture2")
 
         settings.beginGroup("Docks")
         self.dockmanager.restoreState(settings)
